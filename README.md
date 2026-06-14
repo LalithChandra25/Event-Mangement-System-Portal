@@ -1,5 +1,4 @@
 # Event-Mangement-System-Portal
-Developed a web-based Community Event Management System using Python Flask, SQLite, HTML, CSS, and Bootstrap. The platform enables event creation, participant registration, attendance tracking, QR-based payment verification, gallery management, and automated data cleanup through a responsive and user-friendly interface.
 
 The Community Event Management System Portal is a comprehensive web-based application designed to streamline and digitize the process of organizing, managing, and participating in community events. Developed using Python Flask, SQLite, HTML, CSS, and Bootstrap, the platform provides a centralized solution for event administrators and participants, eliminating the inefficiencies of traditional manual event management.
 
@@ -11,18 +10,18 @@ The attendance management module allows organizers to track participant registra
 
 To maintain database efficiency and system performance, the application includes automated cleanup mechanisms that remove outdated event and gallery records. The responsive design, built with Bootstrap, ensures seamless accessibility across desktops, tablets, and mobile devices.
 
-Key Features
-User Authentication and Session Management
-Event Creation and Management
-Slot-Based Participant Registration
-Attendance Tracking and Verification
-QR Code Payment Integration
-Payment Screenshot Upload and Validation
-Event Gallery Upload and Display
-Automated Cleanup of Old Records
-Responsive and User-Friendly Interface
-Technologies Used
-Frontend: HTML, CSS, Bootstrap
-Backend: Python Flask
-Database: SQLite
-File Management: Image and Screenshot Upload Handling
+## Key Features
+1. User Authentication and Session Management
+2. Event Creation and Management
+3. Slot-Based Participant Registration
+4. Attendance Tracking and Verification
+5. QR Code Payment Integration
+6. Payment Screenshot Upload and Validation
+7. Event Gallery Upload and Display
+8. Automated Cleanup of Old Records
+9. Responsive and User-Friendly Interface
+## Technologies Used
+**Frontend**: HTML, CSS, Bootstrap
+**Backend**: Python Flask
+**Database:** SQLite
+**File Management:** Image and Screenshot Upload Handling
