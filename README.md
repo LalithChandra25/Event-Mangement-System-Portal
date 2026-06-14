@@ -22,6 +22,9 @@ To maintain database efficiency and system performance, the application includes
 9. Responsive and User-Friendly Interface
 ## Technologies Used
 **Frontend**: HTML, CSS, Bootstrap
+
 **Backend**: Python Flask
+
 **Database:** SQLite
+
 **File Management:** Image and Screenshot Upload Handling
