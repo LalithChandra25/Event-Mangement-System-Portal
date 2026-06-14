@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="text-center mb-4">Create Event</h2>
+<h3>Core Connect</h3>
+
+<div class="row justify-content-center">
+<div class="col-md-6">
+
+<div class="card shadow">
+<div class="card-body">
+
+<form action="/add_event" method="POST" enctype="multipart/form-data">
+
+<!-- Event Name -->
+<div class="mb-3">
+<input type="text" name="event_name" class="form-control" placeholder="Event Name" required>
+</div>
+
+<!-- Event Date -->
+<div class="mb-3">
+<input type="date" name="event_date" id="event_date" class="form-control" required>
+<small id="event_msg"></small>
+</div>
+
+<!-- Location -->
+<div class="mb-3">
+<input type="text" name="event_location" class="form-control" placeholder="Location" required>
+</div>
+
+<!-- Slots -->
+<label>No of Slots</label>
+<select name="max_slots" class="form-control mb-3">
+    <option value="50">50</option>
+    <option value="100">100</option>
+    <option value="150">150</option>
+    <option value="200">200</option>
+    <option value="300">300</option>
+    <option value="0">Unlimited</option>
+</select>
+
+<!-- Payment Toggle -->
+<label>Enable Payment</label>
+<select name="payment_enabled" id="payment_toggle" class="form-control mb-3">
+    <option value="0">No</option>
+    <option value="1">Yes</option>
+</select>
+
+<!-- Payment Fields -->
+<div id="payment_fields" style="display:none;">
+
+    <input type="number" name="fee" placeholder="Enter Fee" class="form-control mb-3">
+
+    <input type="file" name="qr_code" class="form-control mb-3">
+
+</div>
+
+<!-- Submit -->
+<button class="btn btn-success w-100">
+Create Event
+</button>
+
+</form>
+
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- 🔥 SCRIPT MUST BE INSIDE BLOCK -->
+<script>
+window.onload = function () {
+
+    // 📅 DATE VALIDATION
+    let dateInput = document.getElementById("event_date");
+    let msg = document.getElementById("event_msg");
+
+    if (dateInput) {
+        dateInput.onchange = function () {
+
+            let selectedDate = this.value;
+
+            fetch("/check_events/" + selectedDate)
+            .then(res => res.json())
+            .then(data => {
+
+                if (data.count >= 10) {
+                    msg.innerHTML = "⚠️ Slots are full for this day!";
+                    msg.style.color = "red";
+
+                    dateInput.style.border = "2px solid red";
+                    dateInput.style.backgroundColor = "#f8d7da";
+
+                    document.querySelector("button").disabled = true;
+                } else {
+                    msg.innerHTML = "";
+                    dateInput.style.border = "";
+                    dateInput.style.backgroundColor = "";
+
+                    document.querySelector("button").disabled = false;
+                }
+
+            });
+        };
+    }
+
+    // 💰 PAYMENT TOGGLE
+    let toggle = document.getElementById("payment_toggle");
+    let fields = document.getElementById("payment_fields");
+
+    if (toggle && fields) {
+        toggle.onchange = function () {
+            if (this.value === "1") {
+                fields.style.display = "block";
+            } else {
+                fields.style.display = "none";
+            }
+        };
+    }
+
+};
+</script>
+
+{% endblock %}

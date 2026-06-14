@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Select Event Gallery</h2>
+
+<table class="table table-bordered">
+
+<tr>
+<th>Event</th>
+<th>Date</th>
+<th>Gallery</th>
+</tr>
+
+{% for e in events %}
+
+<tr>
+
+<td>{{e.event_name}}</td>
+<td>{{e.event_date}}</td>
+
+<td>
+
+<a href="/gallery/{{e.id}}" class="btn btn-warning">
+View Photos
+</a>
+
+<a href="/upload_photo/{{e.id}}" class="btn btn-success">
+Upload Photo
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

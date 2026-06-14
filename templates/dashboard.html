@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Welcome to Core Connect</h1>
+<h2 class="text-center mb-4">Dashboard</h2>
+
+<div class="row">
+
+<!-- CREATE EVENT -->
+<div class="col-md-3 mb-4">
+<div class="card shadow text-center">
+<div class="card-body">
+
+<h4>📅 Create Event</h4>
+<p>Add new event</p>
+
+<a href="/create_event" class="btn btn-primary">
+Open
+</a>
+
+</div>
+</div>
+</div>
+
+<!-- VIEW EVENTS -->
+<div class="col-md-3 mb-4">
+<div class="card shadow text-center">
+<div class="card-body">
+
+<h4>📊 Manage Events</h4>
+<p>View Events and add attendees</p>
+
+<a href="/events" class="btn btn-success">
+Open
+</a>
+
+</div>
+</div>
+</div>
+
+<!-- ATTENDANCE -->
+<div class="col-md-3 mb-4">
+<div class="card shadow text-center">
+<div class="card-body">
+
+<h4>👥 Attendance</h4>
+<p>View Attendance</p>
+
+<a href="/attendance_events" class="btn btn-info">
+Open
+</a>
+
+</div>
+</div>
+</div>
+
+<!-- GALLERY -->
+<div class="col-md-3 mb-4">
+<div class="card shadow text-center">
+<div class="card-body">
+
+<h4>🖼 Gallery</h4>
+
+<p>View Gallary</p>
+
+<a href="/gallery_events" class="btn btn-warning">
+Open
+</a>
+
+</div>
+</div>
+</div>
+
+</div>
+
+{% endblock %}

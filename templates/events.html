@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="text-center mb-4">Events List</h2>
+<h3>Core Connect</h3>
+
+<table class="table table-bordered table-striped">
+
+<tr>
+<th>Event Name</th>
+<th>Date</th>
+<th>Location</th>
+<th>Payment</th>
+<th>Attendees</th>
+<th>Actions</th>
+</tr>
+
+{% for e in events %}
+
+<tr>
+
+<td>{{ e.event_name }}</td>
+<td>{{ e.event_date }}</td>
+<td>{{ e.event_location }}</td>
+{% if e.payment_enabled == 1 %}
+<p>Fee: ₹{{e.fee}}</p>
+<img src="/static/uploads/{{e.qr_code}}" width="200">
+{% endif %}
+<td>
+<span class="badge bg-primary">
+{{ e.total_attendees }}
+</span>
+</td>
+
+<td>
+
+<a href="/attendance/{{e.id}}" class="btn btn-info btn-sm">
+Add Attendance
+</a>
+
+<a href="/gallery/{{e.id}}" class="btn btn-warning btn-sm">
+Gallery
+</a>
+
+
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="text-center mb-4">Event Gallery</h2>
+
+<div class="row">
+    {% for photo in photos %}
+    <div class="col-md-3 col-sm-6 mb-4">
+        <div class="card gallery-card">
+            <img src="/static/uploads/{{ photo['image'] }}" class="gallery-img">
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

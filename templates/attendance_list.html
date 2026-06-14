@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Attendance List</h2>
+
+<table class="table table-bordered">
+
+<tr>
+<th>Event</th>
+<th>Person</th>
+</tr>
+
+{% for a in data %}
+
+<tr>
+<td>{{a.event_name}}</td>
+<td>{{a.person_name}}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

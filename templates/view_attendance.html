@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Attendance</h2>
+
+<h4>Total Attendees: {{total}}</h4>
+
+<table class="table table-bordered">
+
+<tr>
+<th>Person Name</th>
+<th>Screenshot</th>
+</tr>
+
+{% for a in attendees %}
+
+<tr>
+<td>{{a.person_name}}</td>
+<td>
+{% if a.payment_ss %}
+<img src="{{ url_for('static', filename='uploads/' + a.payment_ss) }}" width="100">
+{% else %}
+-
+{% endif %}
+</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}
